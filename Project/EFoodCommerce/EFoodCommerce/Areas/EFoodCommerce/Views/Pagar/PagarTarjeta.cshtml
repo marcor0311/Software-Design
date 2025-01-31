@@ -1,0 +1,137 @@
+﻿@{
+    ViewData["Title"] = "PagarTarjeta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<form method="post" id="tarjetaForm" asp-action="Confirmacion">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem;">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+        </div>
+    <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">Tarjeta</h2>
+     </div>
+
+    <div class="row mb-2 mt-2">
+        <div class="form-group col-md-6">
+            <label>Tipo tarjeta</label>
+            <select class="form-control" name="tipoTarjeta" required>
+                <option selected disabled value="">Seleccione un tipo</option>
+                @foreach (var tarjeta in Model.TarjetasLista)
+                {
+                    <option value="@tarjeta.Nombre">@tarjeta.Nombre</option>
+                }
+            </select>
+        </div>
+    </div>
+
+    <div class="row mb-2 mt-2">
+        <div class="form-group col-md-6">
+            <label>Número</label>
+            <input type="text" id="numeroTarjeta" class="form-control" placeholder="Número" required />
+        </div>
+    </div>
+
+    <div class="row mb-2 mt-2">
+        <div class="form-group col-md-6">
+            <label>Fecha de vencimiento</label>
+            <div class="row">
+                <div class="col-md-6">
+                    <select class="form-control" required>
+                        <option selected disabled  value="">Mes</option>
+                        <option value="01">Enero</option>
+                        <option value="02">Febrero</option>
+                        <option value="03">Marzo</option>
+                        <option value="04">Abril</option>
+                        <option value="05">Mayo</option>
+                        <option value="06">Junio</option>
+                        <option value="07">Julio</option>
+                        <option value="08">Agosto</option>
+                        <option value="09">Septiembre</option>
+                        <option value="10">Octubre</option>
+                        <option value="11">Noviembre</option>
+                        <option value="12">Diciembre</option>
+                       
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <select class="form-control" required>
+                        <option selected disabled value="">Año</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2031">2031</option>
+                        <option value="2032">2032</option>
+                        <option value="2033">2033</option>
+                        <option value="2034">2034</option>
+                        <option value="2035">2035</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mb-2 mt-2">
+        <div class="form-group col-md-6">
+            <label>CCV</label>
+            <input type="text" id="ccv" class="form-control" placeholder="CCV" required />
+        </div>
+    </div>
+
+    <div class="d-grid gap-2 d-md-block">
+        <a asp-action="MetodoPago" class="btn btn-outline-primary"> <i class="bi bi-arrow-return-left"></i> Regresar </a>
+        <button type="submit" class="btn-success btn ">Siguiente</button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('tarjetaForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        var tipoTarjeta = document.querySelector('[name="tipoTarjeta"]').value;
+        var numeroTarjeta = document.getElementById("numeroTarjeta").value;
+        var ccv = document.getElementById("ccv").value;
+        var verificacion_ccv = await verificarCCV(ccv);
+        var verificacion_numero = await verificarNumeroTarjeta(numeroTarjeta);
+        
+        if (verificacion_numero) {
+
+            if (verificacion_ccv) {
+                localStorage.setItem('nombreTarjeta', tipoTarjeta);
+                localStorage.setItem('numeroTarjeta', numeroTarjeta);
+                window.location.href = "@Url.Action("Confirmacion", "Pagar")";
+            } else {
+                toastr.error("El CCV debe ser un número de 3 o 4 dígitos");
+            }
+
+        } else {
+
+            toastr.error("El número de tarjeta debe empezar con 4 o 5 y tener un largo de 16 dígitos");
+        }
+        
+    });
+
+    async function verificarCCV(ccv) {
+        var ccvPattern = /^\d{3,4}$/;
+        if (ccvPattern.test(ccv)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    async function verificarNumeroTarjeta(numeroTarjeta) {
+        var tarjetaPattern = /^(4|5)\d{15}$/; 
+        if (tarjetaPattern.test(numeroTarjeta)){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+</script>

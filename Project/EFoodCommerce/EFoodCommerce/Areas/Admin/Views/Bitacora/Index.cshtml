@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <h2 class="text-primary">Bitacora</h2>
+    </div>
+</div>
+
+<br />
+
+<div class="p-4 border rounded bg-light">
+    <div class="form-inline mb-3">
+        <label for="fechaInicio" class="mr-2">Fecha y Hora de Inicio:</label>
+        <input type="datetime-local" id="fechaInicio" class="form-control mr-2">
+        <label for="fechaFin" class="mr-2">Fecha y Hora de Fin:</label>
+        <input type="datetime-local" id="fechaFin" class="form-control mr-2">
+        <br/>
+        <button id="btnBuscar" class="btn btn-primary">Buscar</button>
+    </div>
+    <table id="tblDatos" class="table table-responsive table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th>Fecha</th>
+                <th>CodigoRegistro</th>
+                <th>Descripción</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/bitacora.js"></script>
+}

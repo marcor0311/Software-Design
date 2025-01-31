@@ -1,0 +1,86 @@
+﻿@model EFoodCommerce.Modelos.Tarjeta
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Crear tarjeta";
+}
+
+<form method="post">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem;">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+
+            </div>
+        </div>
+        
+        @if (Model.Codigo != 0)
+        {
+            //actualizar
+            
+            titulo = "Actualizar Tarjeta";
+            <input type="hidden" asp-for="Codigo" id="codigo"/>
+        }
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">@titulo</h2>
+        </div>
+        
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Nombre</label>
+                <input type="text" asp-for="Nombre" class="form-control" placeholder="Nombre de la tarjeta" id="nombre"/>
+                <span asp-validation-for="Nombre" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Descripcion</label>
+                <input type="text" asp-for="Descripcion" class="form-control" placeholder="Descripcion de la tarjeta" />
+                <span asp-validation-for="Descripcion" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br />
+
+
+        <div>
+            @if (Model.Codigo !=0)
+            {
+                <partial name="_BotonesActualizarYRegresar" model="Model.Codigo" />
+            }
+            else
+            {
+                <partial name="_BotonesCrearYRegresar"/>
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        document.getElementById("nombre").addEventListener('change', function () {
+            validarNombre();
+        });
+
+
+
+        function validarNombre(){
+            var url = '@Url.Content("~/")' + "Admin/Tarjeta/ValidarNombre";
+            var codigo = '#codigo';
+            var nombre = '#nombre';
+
+            $.getJSON(url, { codigo: $(codigo).val(), nombre: $(nombre).val() }, function (data) {
+                $.each(data, function (key, value) {
+                    if (value) {
+                        var nombre = document.getElementById("nombre");
+                        swal("Error", "Nombre ya existe", "error");
+                        nombre.value = "";
+
+                    }
+                });
+            })
+        }
+
+    </script>
+}
+

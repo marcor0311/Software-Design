@@ -1,0 +1,59 @@
+﻿@model IEnumerable<SelectListItem>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <h2 class="text-primary">Lista de Productos</h2>
+    </div>
+</div>
+
+<br/>
+
+@*
+form con Select para filtrar por linea de comida
+*@
+<form action="javascript:;">
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="form-group
+            ">
+                <label>Linea de Comida</label>
+                <select id="lineaComidaSelect" asp-items="@Model" class="form-control">
+                    <option selected value="-1">-- Seleccione una linea --</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="form-group
+            ">
+                <label>&nbsp;</label>
+                <button id="filtrarLineaComida" type="submit" class="btn btn-primary form-control">Filtrar</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<br />
+
+<div class="p-4 border rounded bg-light">
+    <table id="tblDatos" class="table table-responsive table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Precios</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/verproductos.js"></script>
+}
+

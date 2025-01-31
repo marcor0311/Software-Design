@@ -1,0 +1,188 @@
+﻿@model EFoodCommerce.Modelos.ViewModels.ProcesadorPagoVM
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Crear o Editar Procesador de Pago";
+}
+
+<style>
+    .dropdown-checkboxes {
+        position: relative;
+        display: inline-block;
+    }
+    .dropdown-checkboxes .btn {
+        background-color: white; /* Set the button color to white */
+        border: 1px solid #ccc;
+    }
+    .dropdown-checkboxes-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        min-width: 200px;
+        max-height: 200px; /* Set max height for scrolling */
+        overflow-y: auto;  /* Enable vertical scrolling */
+        border: 1px solid #ccc;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+    .dropdown-checkboxes-content label {
+        display: block;
+        padding: 8px 16px;
+        cursor: pointer;
+    }
+    .dropdown-checkboxes-content label:hover {
+        background-color: #f1f1f1;
+    }
+    .dropdown-checkboxes.show .dropdown-checkboxes-content {
+        display: block;
+    }
+</style>
+
+<form method="post" id="mainForm">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem;">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+        </div>
+        
+        @if (Model.ProcesadorPago?.Codigo != 0)
+        {
+            // Actualizar
+            
+            titulo = "Actualizar Procesador de Pago";
+            <input type="hidden" asp-for="ProcesadorPago.Codigo" id="codigo" />
+        }
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">@titulo</h2>
+        </div>
+        
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Nombre del Procesador</label>
+                <input type="text" asp-for="ProcesadorPago.NombreProcesador" class="form-control" placeholder="Nombre del Procesador" id="nombreProcesador" />
+                <span asp-validation-for="ProcesadorPago.NombreProcesador" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Nombre de la Opción de Pago</label>
+                <input type="text" asp-for="ProcesadorPago.NombreOpcionPago" class="form-control" placeholder="Nombre de la Opción de Pago" />
+                <span asp-validation-for="ProcesadorPago.NombreOpcionPago" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Tipo de Pago</label>
+                <select asp-for="ProcesadorPago.Tipo" class="form-control" id="tipo">
+                    <option value="">Seleccione un tipo</option>
+                    <option value="cheque">Cheque</option>
+                    <option value="efectivo">Efectivo</option>
+                    <option value="debito/credito">Débito o Crédito</option>
+                </select>
+                <span asp-validation-for="ProcesadorPago.Tipo" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2" type="hidden" id="selectCards">
+            <div class="form-group col-md-6">
+                <!--<label >Seleccionar Tarjetas</label>-->
+                <!--<select name="TarjetasSeleccionadasLista" asp-for="TarjetasSeleccionadasLista" asp-items="@(new MultiSelectList(Model.TarjetasLista, "Codigo", "Nombre", Model.TarjetasSeleccionadasLista))" class="form-control multi-select-dropdown" multiple>
+                </select>-->
+                <div class="dropdown-checkboxes">
+                    <button class="btn dropdown-toggle" type="button" onclick="toggleDropdown()">Seleccionar Tarjetas</button>
+                    <div class="dropdown-checkboxes-content">
+                        @foreach (var tarjeta in Model.TarjetasLista??[])
+                        {
+                            <label class="form-check-label dropdown-checkbox-label">
+                                <input class="form-check-input dropdown-checkbox" type="checkbox" name="TarjetasSeleccionadasLista" value="@tarjeta.Codigo" id="tarjeta_@tarjeta.Codigo" @((Model.TarjetasSeleccionadasLista??[]).Contains(tarjeta.Codigo) ? "checked" : "")>
+                                @tarjeta.Nombre
+                            </label>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <div class="form-check">
+                    <input type="checkbox" asp-for="ProcesadorPago.Estado" class="form-check-input" id="estado" />
+                    <label class="form-check-label" for="estado">Estado</label>
+                </div>
+                <span asp-validation-for="ProcesadorPago.Estado" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <div class="form-check">
+                    <input type="checkbox" asp-for="ProcesadorPago.Verificacion" class="form-check-input" id="verificacion" />
+                    <label class="form-check-label" for="verificacion">Requiere Verificación</label>
+                </div>
+                <span asp-validation-for="ProcesadorPago.Verificacion" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Método Utilizado</label>
+                <input type="text" asp-for="ProcesadorPago.Metodo" class="form-control" placeholder="Método Utilizado" id="metodoUtilizado" />
+                <span asp-validation-for="ProcesadorPago.Metodo" class="text-danger"></span>
+            </div>
+        </div>
+
+        <br />
+
+        <div>
+            @if (Model.ProcesadorPago?.Codigo != 0)
+            {
+                <partial name="_BotonesActualizarYRegresar" model="Model.ProcesadorPago?.Codigo" />
+            }
+            else
+            {
+                <partial name="_BotonesCrearYRegresar" />
+            }
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        $("#tipo").change(function () {
+            var tipoPago = $("#tipo").val();
+            if (tipoPago == "debito/credito") {
+                $("#selectCards").show();
+            } else {
+                $("#selectCards").hide();
+            }
+        });
+
+        $(document).ready(function () {
+            var tipoPago = $("#tipo").val();
+            if (tipoPago == "debito/credito") {
+                $("#selectCards").show();
+            } else {
+                $("#selectCards").hide();
+            }
+        });
+
+            function toggleDropdown() {
+        document.querySelector(".dropdown-checkboxes").classList.toggle("show");
+    }
+    
+    window.onclick = function(event) {
+        if (!event.target.matches('.dropdown-toggle') && !event.target.matches('.dropdown-checkbox') && !event.target.matches('.dropdown-checkbox-label')) {
+            var dropdowns = document.getElementsByClassName("dropdown-checkboxes");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.toggle('show');
+                }
+            }
+        }
+    }
+    </script>
+}

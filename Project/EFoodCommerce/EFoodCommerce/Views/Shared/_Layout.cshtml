@@ -1,0 +1,137 @@
+﻿@using EFoodCommerce.Utilidades
+@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor httpContextAccessor
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - EFoodCommerce</title>
+    <!--<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" /> -->
+    <link rel="stylesheet" href="~/css/bootswatchTheme.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link href="~/lib/select2/css/select2.min.css" rel="stylesheet" />
+    <link href="~/lib/select2-bootstrap-5-theme/select2-bootstrap-5-theme.min.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        
+
+        <!-- ACCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC-->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <img src="~/imagenes/donut-svgrepo-com.png" width="50px" height="50px"/> </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor04" aria-controls="navbarColor04" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor04">
+                    <ul class="navbar-nav me-auto">
+                        @if (!SignInManager.IsSignedIn(User))
+                        {
+                            <li>
+                                <a asp-area="EFoodCommerce" asp-controller="Carro" asp-action="Index" class="nav-link">
+                                    @{
+                                        var numeroProductos = httpContextAccessor.HttpContext!.Session.GetInt32(DS.ssCarroCompras);
+                                    }
+                                    <i class="bi bi-cart-fill text-primary">
+                                        @if (numeroProductos.HasValue && numeroProductos.Value > 0)
+                                        {
+                                            @:&nbsp;(@numeroProductos)
+                                        }
+                                    </i>
+                                </a>
+                            </li>
+                        }
+
+                       
+                        @if (User.IsInRole(DS.ROLE_ADMINISTRADOR) || User.IsInRole(DS.ROLE_MANTENIMIENTO) || User.IsInRole(DS.ROLE_SEGURIDAD) || User.IsInRole(DS.ROLE_CONSULTAS) || User.IsInRole(DS.ROLE_TESTER))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Contenido
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    @if (User.IsInRole(DS.ROLE_ADMINISTRADOR) || User.IsInRole(DS.ROLE_SEGURIDAD))
+                                    {
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="UsuarioAplicacion" asp-action="Index">Usuarios</a></li>
+                                    }
+
+                                    @if (User.IsInRole(DS.ROLE_ADMINISTRADOR) || User.IsInRole(DS.ROLE_CONSULTAS))
+                                    {
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Bitacora" asp-action="Index">Bitacora</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Error" asp-action="Index">Error</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Pedido" asp-action="Index">Pedidos</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="VerProductos" asp-action="Index">Ver Productos</a></li>
+                                    }
+
+                                    @if (User.IsInRole(DS.ROLE_ADMINISTRADOR) || User.IsInRole(DS.ROLE_MANTENIMIENTO))
+                                    {
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="TiqueteDescuento" asp-action="Index">Tiquetes de Descuento</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="TipoPrecio" asp-action="Index">Tipos de precio</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="LineaComida" asp-action="Index">Líneas de comida</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Producto" asp-action="Index">Productos</a></li>
+                                    }
+
+                                    @if (User.IsInRole(DS.ROLE_ADMINISTRADOR))
+                                    {
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Tarjeta" asp-action="Index">Tarjetas</a></li>
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="ProcesadorPago" asp-action="Index">Procesadores de Pago</a></li>
+
+                                    }
+                                    @if (User.IsInRole(DS.ROLE_TESTER))
+                                    {
+                                        <li><a class="dropdown-item" asp-area="Admin" asp-controller="Tester" asp-action="Index">Página de Tester</a></li>
+
+                                    }
+
+
+
+                                </ul>
+                            </li>
+
+                        }
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <br/>
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2024 - EFoodCommerce - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script src="~/lib/select2/js/select2.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

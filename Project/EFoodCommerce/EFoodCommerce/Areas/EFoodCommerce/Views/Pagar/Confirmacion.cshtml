@@ -1,0 +1,89 @@
+﻿@{
+    ViewData["Title"] = "Confirmación";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12 border-bottom">
+            <h2 class="text-primary">Confirmación del pedido</h2>
+            <p><strong>Nombre:</strong> <span id="nombreConfirmacion"></span></p>
+            <p><strong>Apellidos:</strong> <span id="apellidosConfirmacion"></span></p>
+        </div>
+
+        <div class="col-12 border-bottom mt-4">
+            <h2 class="text-primary">Información de Envío</h2>
+            <p><strong>Dirección:</strong> <span id="direccionConfirmacion"></span></p>
+            <p><strong>Teléfono:</strong> <span id="telefonoConfirmacion"></span></p>
+        </div>
+
+        <div class="col-12 border-bottom mt-4">
+            <h2 class="text-primary">Forma de Pago</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>Medio:</strong> <span id="medioPagoConfirmacion"></span></p>
+                    <p><strong>Número:</strong> <span id="numeroTarjetaConfirmacion"></span></p>
+                </div>
+                <div class="col-md-6">
+                    <p><strong>Tipo:</strong> <span id="tipoTarjetaConfirmacion"></span></p>
+                </div>
+            </div>
+            <p><strong>Número Cheque:</strong> <span id="chequeNumeroConfirmacion"></span></p>
+            <p><strong>Cuenta Cheque:</strong> <span id="chequeCuentaConfirmacion"></span></p>
+            <p><strong>Total:</strong> $<span id="precioTotal"></span></p>
+        </div>
+
+        <div class="col-lg-6 mt-4">
+            
+            <button id="cancelarPedidoBtn" class="btn btn-outline-primary">Cancelar pedido</button>
+            <button id="guardarPedidoBtn" class="btn btn-success">Guardar pedido</button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    document.getElementById("nombreConfirmacion").textContent = localStorage.getItem('nombre');
+    document.getElementById("apellidosConfirmacion").textContent = localStorage.getItem('apellidos');
+    document.getElementById("direccionConfirmacion").textContent = localStorage.getItem('direccion');
+    document.getElementById("telefonoConfirmacion").textContent = localStorage.getItem('telefono');
+    document.getElementById("medioPagoConfirmacion").textContent = localStorage.getItem('medioPago');
+    document.getElementById("tipoTarjetaConfirmacion").textContent = localStorage.getItem('nombreTarjeta');
+    document.getElementById("numeroTarjetaConfirmacion").textContent = localStorage.getItem('numeroTarjeta');
+    document.getElementById("chequeNumeroConfirmacion").textContent = localStorage.getItem('numero_cheque');
+    document.getElementById("chequeCuentaConfirmacion").textContent = localStorage.getItem('cuenta_cheque');
+    document.getElementById("precioTotal").textContent = localStorage.getItem('total_final');
+
+    document.getElementById('cancelarPedidoBtn').addEventListener('click', async function () {
+
+        swal({
+            title: 'Su pedido ha sido cancelado exitosamente',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+
+            window.location.href = '@Url.Action("Index", "Home")';
+
+        });
+
+    });
+
+
+    document.getElementById('guardarPedidoBtn').addEventListener('click', async function () {
+       
+        var total = localStorage.getItem('total');
+        var codigo_descuento = localStorage.getItem('codigo_descuento');
+        var url = '@Url.Action("AgregarPedido", "Pagar")' + '?total=' + total + '&codigo_descuento=' + codigo_descuento;
+        var response = await fetch(url);
+        var numeroPedido = await response.json();
+        swal({
+            title: 'Gracias por su compra',
+            text: 'El número de pedido es: ' + numeroPedido,
+            icon: 'success',
+            confirmButtonText: 'Aceptar'
+        }).then((result) => {
+            
+             window.location.href = '@Url.Action("Index", "Home")';
+            
+        });
+    });
+</script>

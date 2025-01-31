@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "MetodoPago";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form id="metodoForm" method="post">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem;">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+        </div>
+
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">Método de Pago</h2>
+        </div>
+
+        <div class="col-md-6">
+            <select id="medioPago" class="form-control">
+                <option value="">Seleccione un tipo</option>
+                @foreach (var procesador in Model.procesadores)
+                {
+                    @if (procesador.Estado)
+                    {
+                        <option value="@procesador.Tipo">@procesador.NombreProcesador</option>
+                    }
+
+                }
+            </select>
+        </div>
+        <br />
+
+        <p><strong>Subtotal:</strong> $<span id="subtotal_metodo"></span></p>
+        <p><strong>Descuento:</strong> $<span id="descuento_metodo"></span></p>
+        <p><strong>Total:</strong> $<span id="total_metodo"></span></p>
+
+        <div class="col-lg-6">
+            <a asp-action="Index" class="btn btn-outline-primary"> <i class="bi bi-arrow-return-left"></i> Regresar </a>
+            <button id="btnSiguiente" class="btn-success btn ">Siguiente</button>
+        </div>
+    </div>
+</form>
+
+<script>
+
+    var sub = localStorage.getItem('total');
+    document.getElementById("subtotal_metodo").textContent = sub;
+    var d = sub * (localStorage.getItem('porcentaje_descuento') / 100);
+    document.getElementById("descuento_metodo").textContent = d;
+    var total_final = sub - d;
+    document.getElementById("total_metodo").textContent = total_final;
+    localStorage.setItem('total_final', total_final);
+
+    document.getElementById("btnSiguiente").addEventListener("click", function () {
+        var medioPago = document.getElementById("medioPago").value;
+        var procesadorPagoNombre = document.getElementById("medioPago").options[document.getElementById("medioPago").selectedIndex].text;
+        if (medioPago === "cheque") {
+            localStorage.setItem('nombreTarjeta', "No aplica");
+            localStorage.setItem('numeroTarjeta', "No aplica")
+            window.location.href = "@Url.Action("ChequePagar", "Pagar")";
+        } else if (medioPago === "debito/credito") {
+            localStorage.setItem('numero_cheque', "No aplica");
+            localStorage.setItem('cuenta_cheque', "No aplica");
+            window.location.href = "@Url.Action("PagarTarjeta", "Pagar")" + "?procesador_pago_nombre=" + procesadorPagoNombre;
+        } else if (medioPago === "efectivo") {
+            localStorage.setItem('nombreTarjeta', "No aplica");
+            localStorage.setItem('numeroTarjeta', "No aplica");
+            localStorage.setItem('numero_cheque', "No aplica");
+            localStorage.setItem('cuenta_cheque', "No aplica");
+            window.location.href = "@Url.Action("Confirmacion", "Pagar")";
+        }
+    });
+
+    
+
+    document.getElementById('metodoForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        localStorage.setItem('medioPago', document.getElementById("medioPago").value);
+    });
+</script>

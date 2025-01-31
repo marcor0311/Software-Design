@@ -1,0 +1,96 @@
+﻿@model EFoodCommerce.Modelos.ViewModels.PrecioProductoVM
+@using EFoodCommerce.Utilidades
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Crear Nuevo Precio";
+}
+
+<form method="POST" enctype="multipart/form-data">
+    @if(Model.PrecioProducto?.Codigo !=0)
+    {
+        titulo = "Editar Precio";
+        <input asp-for="PrecioProducto.Codigo" hidden />
+        <input asp-for="Producto.Codigo" hidden />
+        <input asp-for="Producto.CodigoLineaComida" hidden />
+        <input asp-for="Producto.Nombre" hidden />
+        <input asp-for="PrecioProducto.CodigoProducto" hidden />
+
+    }
+
+    <input asp-for="Producto.Codigo"hidden />
+    <input asp-for="Producto.CodigoLineaComida"hidden />
+    <input asp-for="Producto.Nombre"hidden />
+    <input asp-for="PrecioProducto.CodigoProducto" hidden />
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <h2 class="text-info">@titulo</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Precio $</label>
+                            <input asp-for="PrecioProducto.Precio" class="form-control" />
+                            <span asp-validation-for="PrecioProducto.Precio" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Linea</label>
+                            <select asp-for="PrecioProducto.CodigoTipoPrecio" asp-items="@Model.TipoPrecioLista" class="form-select">
+                                <option disabled selected>-- Seleccione un tipo de precio --</option>
+                            </select>
+                            <span asp-validation-for="PrecioProducto.CodigoTipoPrecio" class="text-danger"></span>
+                            <span asp-validation-for="PrecioProducto.CodigoProducto" class="text-danger"></span>
+                            @Html.ValidationMessageFor(model => model.PrecioProducto.CodigoTipoPrecio, "", new { @class = "text-danger" })
+                            @Html.ValidationMessageFor(model => model.PrecioProducto.CodigoProducto, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    
+                    <br />
+
+                    <div class="d-grid gap-2 d-md-block">
+                        @if(Model.PrecioProducto?.Codigo != 0)
+                        {
+                            
+                            <button type="submit" class="btn btn-primary" onfocus="false" asp-route-id="@Model.PrecioProducto?.Codigo"><i class="bi bi-pen-fill"></i> Guardar</button>
+                            <a href="/Admin/PrecioProducto/Index?codigoProducto=@Model.Producto?.Codigo" class="btn btn-success"> <i class="bi bi-arrow-return-left"></i> Regresar </a>
+                        }
+                        else
+                        {
+                            
+                            <button type="submit" class="btn btn-primary" onfocus="false"> <i class="bi bi-plus-square-fill"></i> Crear</button>
+                            <a href="/Admin/PrecioProducto/Index?codigoProducto=@Model.Producto?.Codigo" class="btn btn-success"> <i class="bi bi-arrow-return-left"></i> Regresar </a>
+
+                        }
+
+                    </div>
+
+
+                </div>
+            </div>
+
+           
+
+
+        </div>
+
+
+    </div>
+
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+
+
+}

@@ -1,0 +1,95 @@
+@model EFoodCommerce.Modelos.ViewModels.CarroCompraVM
+@using EFoodCommerce.Utilidades
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Comprar un Producto";
+}
+
+<form method="POST" enctype="multipart/form-data">
+    <input asp-for="CarroCompra!.ProductoCodigo" hidden />
+    <div class="border p-3">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <h2 class="text-info">@titulo</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Nombre</label>
+                            <input type="text" class="form-control" value="@(Model.Producto?.Nombre)" readonly />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Contenido</label>
+                            <input type="text" class="form-control" value="@(Model.Producto?.Contenido)" readonly />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Linea</label>
+                            <input type="text" class="form-control" value="@(Model.NombreLineaComida)" readonly />
+                        </div>
+                    </div>
+                    
+                    <br />
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Opciones de precios</label>
+                            <select asp-for="CarroCompra!.PrecioProductoCodigo" asp-items="@Model.Precios" class="form-select">
+                                <option disabled selected>-- Seleccione un precio --</option>
+                            </select>
+                            <span asp-validation-for="CarroCompra!.PrecioProductoCodigo" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <!-- Espacio para poner la cantidad--> 
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Cantidad</label> 
+                            <input type="number" min="1" step="1" asp-for="@((Model.CarroCompra!).Cantidad)" value="1">
+                            <span asp-validation-for="CarroCompra!.Cantidad" class="text-danger"></span> 
+                        </div>
+                    </div>
+
+                    <br/>
+
+                    <div class="d-grid gap-2 d-md-block">
+                        <div class="d-grid gap-2 d-md-block">
+                            <button type="submit" class="btn btn-primary" onfocus="false"> <i class="bi bi-plus-square-fill"></i>Añadir a carrito</button>
+                            <a asp-action="Index" class="btn btn-success"> <i class="bi bi-arrow-return-left"></i> Regresar </a>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-4">
+                <img  src="@DS.ImagenRuta@Model.Producto?.RutaImagen" width="100%" style="border-radius:5px; border:1px solid #bbb" />
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+
+    <script>
+
+    </script>
+
+}

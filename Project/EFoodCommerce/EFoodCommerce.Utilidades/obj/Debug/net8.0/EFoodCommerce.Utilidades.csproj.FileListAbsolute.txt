@@ -1,0 +1,13 @@
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\bin\Debug\net8.0\EFoodCommerce.Utilidades.deps.json
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\bin\Debug\net8.0\EFoodCommerce.Utilidades.dll
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\bin\Debug\net8.0\EFoodCommerce.Utilidades.pdb
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\obj\Debug\net8.0\EFoodCommerce.Utilidades.csproj.AssemblyReference.cache
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\obj\Debug\net8.0\EFoodCommerce.Utilidades.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\obj\Debug\net8.0\EFoodCommerce.Utilidades.AssemblyInfoInputs.cache
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\obj\Debug\net8.0\EFoodCommerce.Utilidades.AssemblyInfo.cs
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\obj\Debug\net8.0\EFoodCommerce.Utilidades.csproj.CoreCompileInputs.cache
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\obj\Debug\net8.0\EFoodCommerce.Utilidades.sourcelink.json
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\obj\Debug\net8.0\EFoodCommerce.Utilidades.dll
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\obj\Debug\net8.0\refint\EFoodCommerce.Utilidades.dll
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\obj\Debug\net8.0\EFoodCommerce.Utilidades.pdb
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Utilidades\obj\Debug\net8.0\ref\EFoodCommerce.Utilidades.dll

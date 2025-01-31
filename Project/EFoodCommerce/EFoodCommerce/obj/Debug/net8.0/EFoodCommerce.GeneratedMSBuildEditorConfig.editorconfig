@@ -1,0 +1,271 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EFoodCommerce
+build_property.RootNamespace = EFoodCommerce
+build_property.ProjectDir = C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/Bitacora/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQml0YWNvcmFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/Error/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcRXJyb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/LineaComida/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTGluZWFDb21pZGFcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/LineaComida/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcTGluZWFDb21pZGFcVXBzZXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/Pedido/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUGVkaWRvXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/PrecioProducto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJlY2lvUHJvZHVjdG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/PrecioProducto/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJlY2lvUHJvZHVjdG9cVXBzZXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/ProcesadorPago/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvY2VzYWRvclBhZ29cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/ProcesadorPago/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvY2VzYWRvclBhZ29cVXBzZXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/Producto/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdG9cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/Producto/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdG9cVXBzZXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/Tarjeta/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGFyamV0YVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/Tarjeta/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGFyamV0YVxVcHNlcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/Tester/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGVzdGVyXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/TipoPrecio/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGlwb1ByZWNpb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/TipoPrecio/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGlwb1ByZWNpb1xVcHNlcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/TiqueteDescuento/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGlxdWV0ZURlc2N1ZW50b1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/TiqueteDescuento/Upsert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVGlxdWV0ZURlc2N1ZW50b1xVcHNlcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/UsuarioAplicacion/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVXN1YXJpb0FwbGljYWNpb25cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/VerProductos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVmVyUHJvZHVjdG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/Carro/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xDYXJyb1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/Home/Detalle.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xIb21lXERldGFsbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xIb21lXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xIb21lXFByaXZhY3kuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/Pagar/ChequePagar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xQYWdhclxDaGVxdWVQYWdhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/Pagar/Confirmacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xQYWdhclxDb25maXJtYWNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/Pagar/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xQYWdhclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/Pagar/MetodoPago.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xQYWdhclxNZXRvZG9QYWdvLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/Pagar/PagarTarjeta.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xQYWdhclxQYWdhclRhcmpldGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/EFoodCommerce/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRUZvb2RDb21tZXJjZVxWaWV3c1xfVmlld1N0YXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Error/Views/Error/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRXJyb3JcVmlld3NcRXJyb3JcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Error/Views/Error/NotFound.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRXJyb3JcVmlld3NcRXJyb3JcTm90Rm91bmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Error/Views/Error/ServerError.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcRXJyb3JcVmlld3NcRXJyb3JcU2VydmVyRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/AccessDenied.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxBY2Nlc3NEZW5pZWQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/Lockout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/Manage/ChangePassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcQ2hhbmdlUGFzc3dvcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/Manage/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/Manage/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/Manage/_ManageNav.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX01hbmFnZU5hdi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/Manage/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1N0YXR1c01lc3NhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/Manage/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxNYW5hZ2VcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/_StatusMessage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfU3RhdHVzTWVzc2FnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Areas/Identity/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Views/Shared/_BotonesActualizarYRegresar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb3RvbmVzQWN0dWFsaXphcllSZWdyZXNhci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Views/Shared/_BotonesCrearYRegresar.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Cb3RvbmVzQ3JlYXJZUmVncmVzYXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Views/Shared/_LoginPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/e-food-commerce/EFoodCommerce/EFoodCommerce/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-uu7wjdc9qb

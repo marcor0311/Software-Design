@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-EFoodCommerce-0b524222-8c1c-4bcd-9be3-98ee656c402e</UserSecretsId>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EFoodCommerce.AccesoDatos\EFoodCommerce.AccesoDatos.csproj" />
+    <ProjectReference Include="..\EFoodCommerce.Modelos\EFoodCommerce.Modelos.csproj" />
+    <ProjectReference Include="..\EFoodCommerce.Utilidades\EFoodCommerce.Utilidades.csproj" />
+    <ProjectReference Include="..\EFoodCommerce.Middleware\EFoodCommerce.Middleware.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\imagenes\producto\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Update="Areas\Admin\Views\PrecioProducto\Upsert.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

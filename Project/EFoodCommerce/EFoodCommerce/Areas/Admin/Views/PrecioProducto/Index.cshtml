@@ -1,0 +1,37 @@
+﻿@model EFoodCommerce.Modelos.ViewModels.PrecioProductoVM
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    int codigoProducto = ViewBag.codigoProducto;
+}
+
+<div class="row">
+    <div class="col-lg-6">
+        <h2 class="text-primary">Lista de Precios</h2>
+    </div>
+    <div class="col-lg-6">
+        <a class="btn btn-outline-primary" href="./Upsert?codigoProducto=@codigoProducto"> <i class="bi bi-plus-square-fill"></i> Añadir precio</a>
+    </div>
+</div>
+
+<br />
+
+<div class="p-4 border rounded bg-light">
+    <table id="tblDatos" class="table table-responsive table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Tipo de precio</th>
+                <th>Precio</th>
+                <th></th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/precioproducto.js"></script>
+}
+

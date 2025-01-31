@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "ChequePagar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form id="chequeForm" method="post" asp-action="Confirmacion">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem;">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+        </div>
+
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">Cheque Electrónico</h2>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Número Cheque</label>
+                <input type="text" class="form-control" placeholder="Número Cheque" name="numero_cheque" required />
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Cuenta</label>
+                <input type="text" class="form-control" placeholder="Cuenta" name="cuenta_cheque" required/>
+            </div>
+        </div>
+
+        <br />
+
+
+        <div class="col-lg-6">
+            <a asp-action="MetodoPago" class="btn btn-outline-primary"> <i class="bi bi-arrow-return-left"></i> Regresar </a>
+            <button type="submit" class="btn btn-success">Siguiente</button>
+        </div>
+    </div>
+</form>
+
+
+<script>
+    document.getElementById('chequeForm').addEventListener('submit', async function (event) {
+        var numero_cheque = document.querySelector('[name="numero_cheque"]').value;
+        var cuenta_cheque = document.querySelector('[name="cuenta_cheque"]').value;
+        localStorage.setItem('numero_cheque', numero_cheque);
+        localStorage.setItem('cuenta_cheque', cuenta_cheque);
+        window.location.href = "@Url.Action("Confirmacion", "Pagar")";
+    });
+</script>

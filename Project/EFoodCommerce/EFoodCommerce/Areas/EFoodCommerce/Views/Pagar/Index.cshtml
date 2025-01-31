@@ -1,0 +1,109 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var titulo = "Informacion del cliente";
+}
+
+<form id="clienteForm" method="post" asp-action="MetodoPago">
+    <div style="padding-left:15%; padding-right:15%; padding-bottom:inherit.4rem;">
+        <div class="row border-0">
+            <div asp-validation-summary="ModelOnly" class="text-danger">
+            </div>
+        </div>
+
+        <div class="col-12 border-bottom p-0">
+            <h2 class="text-primary">@titulo</h2>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Nombre</label>
+                <input type="text" class="form-control" name="nombre" placeholder="Nombre" required />
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Apellidos</label>
+                <input type="text" class="form-control" name="apellidos" placeholder="Apellidos" required />
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Telefono</label>
+                <input type="text" class="form-control" name="telefono" placeholder="Telefono" required />
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Direccion de Envío</label>
+                <input type="text" class="form-control" name="direccion" placeholder="Direccion de Envío" required />
+
+            </div>
+        </div>
+
+        <div class="row mb-2 mt-2">
+            <div class="form-group col-md-6">
+                <label>Tiquete de descuento</label>
+                <input type="text" class="form-control" placeholder="Tiquete de descuento" name="codigoDescuento" />
+            </div>
+        </div>
+
+        <br />
+
+        <div class="col-lg-6">
+            <button type="submit" class="btn btn-success">Siguiente</button>
+        </div>
+    </div>
+</form>
+
+<script>
+    document.getElementById('clienteForm').addEventListener('submit', async function (event) {
+        event.preventDefault();
+        var codigoDescuento = document.querySelector('input[name="codigoDescuento"]').value;
+        var codigoValido = await verificarCodigoDescuento(codigoDescuento);
+        var telefono = document.querySelector('input[name="telefono"]').value;
+        var verificacion_telefono = await verificarTelefono(telefono);
+
+        if (verificacion_telefono) {
+            if (codigoValido || codigoDescuento === '') {
+                localStorage.setItem('nombre', document.querySelector('input[name="nombre"]').value);
+                localStorage.setItem('apellidos', document.querySelector('input[name="apellidos"]').value);
+                localStorage.setItem('telefono', document.querySelector('input[name="telefono"]').value);
+                localStorage.setItem('direccion', document.querySelector('input[name="direccion"]').value);
+                var porcentaje = await ObtenerPorcentajeDescuento(codigoDescuento);
+                localStorage.setItem('porcentaje_descuento', porcentaje);
+                localStorage.setItem('codigo_descuento', codigoDescuento);
+                window.location.href = "@Url.Action("MetodoPago", "Pagar")";
+            } else {
+                toastr.error("El código de descuento ingresado no es válido o no hay cupones disponibles.");
+            }
+        } else {
+            toastr.error("El teléfono debe ser un número de 8 dígitos.");
+        }
+        
+    });
+
+    async function verificarCodigoDescuento(codigoDescuento) {
+        var response = await fetch('@Url.Action("VerificarCodigoDescuento", "Pagar")?codigoDescuento=' + codigoDescuento);
+        var data = await response.json();
+        return data;
+    }
+
+    async function verificarTelefono(telefono) {
+        var telefonoPattern = /^\d{8}$/;
+        if (telefonoPattern.test(telefono)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    async function ObtenerPorcentajeDescuento(codigoDescuento) {
+        var response = await fetch('@Url.Action("ObtenerPorcentajeDescuento", "Pagar")?codigoDescuento=' + codigoDescuento);
+        var data = await response.json();
+        return data;
+    }
+</script>

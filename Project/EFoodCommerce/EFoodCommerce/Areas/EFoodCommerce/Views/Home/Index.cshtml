@@ -1,0 +1,262 @@
+﻿@model EFoodCommerce.Modelos.Especificaciones.PagedList<EFoodCommerce.Modelos.Producto>
+@using EFoodCommerce.Utilidades
+@using Microsoft.AspNetCore.Mvc.Rendering
+@{
+    ViewData["Title"] = "Página Principal";
+}
+
+<link rel="stylesheet" href="~/css/home.css" />
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenidos a EFoodCommerce</h1>
+
+    @if (User.Identity!.IsAuthenticated)
+    {
+        <p class="lead">¡Bienvenido, @User.Identity.Name!</p>
+        @if (User.IsInRole(DS.ROLE_ADMINISTRADOR))
+        {
+            <hr class="hr" />
+            <h2>Menú Adiminstrador</h2> 
+            <br />
+            <div class="container">
+                <div class="row row-cols-2">
+                    <!-- Tarjetas ProcesadorPago -->
+                    <div class="col mb-5 px-md-4 custom-right">
+                        <form asp-area="Admin" asp-controller="Tarjeta" asp-action="Index" method="get">
+                            <button type="submit" class="btn custom-btn btn-lg">Tarjetas</button>
+                        </form>
+                    </div>
+                    <div class="col mb-5 px-md-4 custom-left">
+                        <form asp-area="Admin" asp-controller="ProcesadorPago" asp-action="Index" method="get">
+                            <button type="submit" class="btn custom-btn btn-lg">Procesadores de Pago</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+        @if (User.IsInRole(DS.ROLE_MANTENIMIENTO) || User.IsInRole(DS.ROLE_ADMINISTRADOR)) {
+            <hr class="hr" />
+            <h2>Menú Mantenimiento</h2> 
+            <br />
+            <div class="container">
+                <div class="row row-cols-2">
+                    <!-- TiqueteDescuento LineaProducto TipoPrecio Producto -->
+                    <div class="col mb-5 px-md-4 custom-right">
+                        <form asp-area="Admin" asp-controller="TiqueteDescuento" asp-action="Index" method="get">
+                            <button type="submit" class="btn custom-btn btn-lg">Tiquetes de Descuento</button>
+                        </form>
+                    </div>
+                    <div class="col mb-5 px-md-4 custom-left">
+                        <form asp-area="Admin" asp-controller="TipoPrecio" asp-action="Index" method="get">
+                            <button type="submit" class="btn custom-btn btn-lg">Tipos de Precio</button>
+                        </form>
+                    </div>
+                    <div class="col mb-5 px-md-4 custom-right">
+                        <form asp-area="Admin" asp-controller="LineaComida" asp-action="Index" method="get">
+                            <button type="submit" class="btn custom-btn btn-lg">Líneas de Comida</button>
+                        </form>
+                    </div>
+                    <div class="col mb-5 px-md-4 custom-left">
+                        <form asp-area="Admin" asp-controller="Producto" asp-action="Index" method="get">
+                            <button type="submit" class="btn custom-btn btn-lg">Productos</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+        @if (User.IsInRole(DS.ROLE_SEGURIDAD) || User.IsInRole(DS.ROLE_ADMINISTRADOR))
+        {
+            <hr class="hr" />
+            <h2>Menú Seguridad</h2>
+            <br />
+            <form asp-area="Admin" asp-controller="UsuarioAplicacion" asp-action="Index" method="get">
+                <button type="submit" class="btn custom-btn custom-lng-btn btn-lg">Usuarios</button>
+            </form>
+        }
+        @if (User.IsInRole(DS.ROLE_CONSULTAS) || User.IsInRole(DS.ROLE_ADMINISTRADOR))
+        {
+            <hr class="hr" />
+            <h2>Menú Consultas</h2>
+            <br />
+            <div class="container">
+                <div class="row row-cols-2">
+                    <div class="col mb-5 px-md-4 custom-right">
+                        <form asp-area="Admin" asp-controller="Bitacora" asp-action="Index" method="get">
+                            <button type="submit" class="btn custom-btn btn-lg">Bitácora</button>
+                        </form>
+                    </div>
+                    <div class="col mb-5 px-md-4 custom-left">
+                        <form asp-area="Admin" asp-controller="Pedido" asp-action="Index" method="get">
+                            <button type="submit" class="btn custom-btn btn-lg">Pedidos</button>
+                        </form>
+                    </div>
+                    <div class="col mb-5 px-md-4 custom-right">
+                        <form asp-area="Admin" asp-controller="Error" asp-action="Index" method="get">
+                            <button type="submit" class="btn custom-btn btn-lg">Errores</button>
+                        </form>
+                    </div>
+                    <div class="col mb-5 px-md-4 custom-left">
+                        <form asp-area="Admin" asp-controller="VerProductos" asp-action="Index" method="get">
+                            <button type="submit" class="btn custom-btn btn-lg">Ver Productos</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+        @if (User.IsInRole(DS.ROLE_TESTER))
+        {
+            <hr class="hr" />
+            <h2>Menú Tester</h2>
+            <br />
+            <form asp-area="Admin" asp-controller="Tester" asp-action="Index" method="get">
+                <button type="submit" class="btn custom-btn custom-lng-btn btn-lg">Página de Tester</button>
+            </form>
+        }
+    }
+    else
+    {
+        <header class="header">
+            <div class="container pt-sm-5" >
+                <div class="heading-primary">
+                    Las mejores comidas en Costa Rica
+                </div>
+            </div>
+        </header>
+
+
+        <section>
+            <div class="container my-2">
+                <form asp-action="Index" method="get">
+                    <div class="col-lg-6 col-md-6 col-sm-6 d-flex">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Buscar comida" aria-label="Buscar" aria-describedby="button-addon2" 
+                            name="busqueda" value="@ViewData["BusquedaActual"]"
+                            />
+
+                            <select class="form-select" name="lineaActual">
+                                <option value="-1"> <b>Linea Comida</b> </option>
+                                @foreach (var item in (IEnumerable<SelectListItem>)(ViewData["LineaComidaLista"]!))
+                                {
+                                    if ((string)ViewData["LineaActual"]! == item.Value)
+                                    {
+                                        <option value="@item.Value" selected>@item.Text</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.Value">@item.Text</option>
+                                    }
+                                }
+                            </select>
+
+                            <button type="submit" class="btn btn-outline-primary">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="row">
+                    @if (Model.Count == 0)
+                    {
+                        <div class="col-lg-12 col-md-12 col-sm-12 d-flex">
+                            <div class="alert alert-warning" role="alert">
+                                No se encontraron productos con la busqueda actual
+                            </div>
+                        </div>
+                    } else {
+                    @foreach (var producto in Model)
+                    {
+                        <div class="col-lg-3 col-md-6 col-sm-6 d-flex"> 
+                            <div class="card w-100 my-2">
+                                <img src="@DS.ImagenRuta@producto.RutaImagen" class="card-img-top" style="aspect-ratio: 1/1"/>
+                                <div class="card-body d-flex flex-column">
+                                    <h5 class="card-title">
+                                        @producto.Nombre
+
+                                    </h5>
+                                    <div class="card-footer d-flex align-items-end pt-3 px-0 pb-0 mt-auto bg-white">
+                                        <a asp-action="Detalle" asp-route-id="@producto.Codigo" class="btn btn-outline-primary">
+                                            Detalle
+                                            <i class="bi bi-tag-fill"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    }
+                </div>
+
+
+                <!--aca sigue-->
+                <a asp-action="Index"
+                    asp-route-pageNumber="@(1)" class="btn btn-outline-primary"  
+                    asp-route-busquedaActual="@ViewData["BusquedaActual"]"
+                >
+                    <i class="bi bi-skip-start-circle"></i>
+                </a>
+
+                <a asp-action="Index"
+                    asp-route-pageNumber="@((int)ViewData["PageNumber"]!-1)" class="btn btn-outline-primary @ViewData["Previo"]"
+                   asp-route-busquedaActual="@ViewData["BusquedaActual"]">
+                Anterior
+                </a>
+
+
+                <span> Página @(ViewData["PageNumber"]) de @ViewData["TotalPaginas"] </span>
+
+                <a asp-action="Index"
+                   asp-route-pageNumber="@((int)ViewData["PageNumber"]!+1)" class="btn btn-outline-primary @ViewData["Siguiente"]"
+                   asp-route-busquedaActual="@ViewData["BusquedaActual"]">
+                Siguiente
+                </a>
+
+                
+                <a asp-action="Index"
+                   asp-route-pageNumber="@ViewData["TotalPaginas"]" class="btn btn-outline-primary"
+                   asp-route-busquedaActual="@ViewData["BusquedaActual"]">
+                    <i class="bi bi-skip-end-circle"></i>
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+    }
+</div>
+
+@section Scripts {
+    
+
+<script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            setTimeout(function () {
+                var alertElement = document.getElementById('alerta-carro-compras');
+                if (alertElement) {
+                    alertElement.classList.remove('show');
+                    alertElement.classList.add('hide');
+                }
+            }, 2000);
+        });
+
+    function getRandomColor() {
+        var colors = ['salmon', 'seagreen', 'skyblue', 'slateblue'];
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        var buttons = document.getElementsByClassName('custom-btn');
+        for (var i = 0; i < buttons.length; i++) {
+            var button = buttons[i];
+            var randomColor = getRandomColor();
+            button.style.backgroundColor = 'Red';
+            button.style.color = '#ffffff';
+        }
+
+
+    });
+</script>
+}

@@ -1,0 +1,16 @@
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\bin\Debug\net8.0\EFoodCommerce.Modelos.deps.json
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\bin\Debug\net8.0\EFoodCommerce.Modelos.dll
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\bin\Debug\net8.0\EFoodCommerce.Modelos.pdb
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\bin\Debug\net8.0\EFoodCommerce.Utilidades.dll
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\bin\Debug\net8.0\EFoodCommerce.Utilidades.pdb
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\EFoodCommerce.Modelos.csproj.AssemblyReference.cache
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\EFoodCommerce.Modelos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\EFoodCommerce.Modelos.AssemblyInfoInputs.cache
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\EFoodCommerce.Modelos.AssemblyInfo.cs
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\EFoodCommerce.Modelos.csproj.CoreCompileInputs.cache
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\EFoodCommerce.Modelos.sourcelink.json
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\EFoodCom.464B55B1.Up2Date
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\EFoodCommerce.Modelos.dll
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\refint\EFoodCommerce.Modelos.dll
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\EFoodCommerce.Modelos.pdb
+C:\Users\User\e-food-commerce\EFoodCommerce\EFoodCommerce.Modelos\obj\Debug\net8.0\ref\EFoodCommerce.Modelos.dll
